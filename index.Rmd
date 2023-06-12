@@ -1,0 +1,37 @@
+---
+output: 
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse   = TRUE,
+  warning    = FALSE,
+  message    = FALSE
+)
+```
+
+# Workshops
+
+Content for various workshops
+
+```{r, echo=FALSE}
+library(knitr)
+library(dplyr)
+library(kableExtra)
+
+readr::read_csv('workshops.csv') %>%
+    janitor::clean_names(case = 'title') %>%
+    rename(URL = Url) %>% 
+    kbl() %>%
+     kable_styling(bootstrap_options = c(
+         "striped", "hover", "condensed")) %>%
+    column_spec(column = 1, width = '8em') %>%
+    column_spec(column = 2, width = '25em') %>%
+    column_spec(column = 3, width = '25em') %>%
+    column_spec(column = 4, width = '8em') %>%
+    column_spec(column = 5, width = '15em') %>%
+    column_spec(column = 6, width = '15em')
+```
