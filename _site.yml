@@ -1,4 +1,4 @@
-name: "Slides"
+name: "Workshops"
 output_dir: '.'
 exclude:
 - DESCRIPTION
